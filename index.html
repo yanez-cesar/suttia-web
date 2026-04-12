@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suttia — Real Estate. Simplified.</title>
+  <meta name="description" content="Suttia automates the administrative work so Florida real estate agents can focus on what actually earns commission." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #1a2e42;
+      --navy-light: #243b55;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --cream: #f5f0e8;
+      --cream-dark: #ede6d8;
+      --white: #ffffff;
+      --text-muted: #8a9bb0;
+      --text-body: #c8d4e0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--cream);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(13, 27, 42, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+    }
+
+    .nav-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--cream);
+      letter-spacing: 0.15em;
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-body);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.85rem 2rem;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--text-body);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      padding: 0.85rem 1.5rem;
+      border: 1px solid rgba(200,212,224,0.2);
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(200,212,224,0.5); color: var(--cream); }
+
+    /* STATS STRIP */
+    .stats-strip {
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.4rem;
+      color: var(--gold-light);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      line-height: 1.5;
+    }
+
+    /* SECTION SHARED */
+    section { padding: 5rem 3rem; }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--cream);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    h2 em { font-style: italic; color: var(--gold-light); }
+
+    .section-intro {
+      font-size: 1rem;
+      color: var(--text-body);
+      max-width: 560px;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    /* PROBLEM SECTION */
+    .problem { max-width: 1100px; margin: 0 auto; }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .problem-card {
+      background: var(--navy);
+      padding: 2rem;
+      position: relative;
+      transition: background 0.25s;
+    }
+    .problem-card:hover { background: var(--navy-mid); }
+
+    .problem-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: rgba(201,168,76,0.25);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .problem-card h3 {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .problem-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* HOW IT WORKS */
+    .how { max-width: 1100px; margin: 0 auto; }
+
+    .how-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .how-item {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      transition: background 0.2s;
+    }
+    .how-item:last-child { border-bottom: none; }
+    .how-item:hover { background: var(--navy-mid); }
+
+    .how-step {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem 0;
+      border-right: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .step-circle {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .how-content {
+      padding: 2rem;
+    }
+
+    .how-content h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+
+    .how-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    /* QUOTE */
+    .quote-section {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 5rem 3rem;
+    }
+
+    .quote-mark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 5rem;
+      color: rgba(201,168,76,0.2);
+      line-height: 0.5;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    blockquote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      font-style: italic;
+      color: var(--cream);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .quote-attr {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      border-top: 1px solid rgba(201,168,76,0.12);
+      padding: 6rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px; height: 300px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 { margin-bottom: 0.75rem; }
+
+    .cta-section p {
+      font-size: 1rem;
+      color: var(--text-body);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-email {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 1.25rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+      letter-spacing: 0.12em;
+    }
+
+    .footer-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .stats-strip { padding: 2.5rem 1.5rem; }
+      footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+      .cta-section { padding: 4rem 1.5rem; }
+      .quote-section { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">SUTTIA</a>
+    <a href="mailto:info@suttia.com" class="nav-cta">Book a call</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">For real estate agents · Florida</div>
+      <h1>Stop spending your week on tasks that <em>don't close deals.</em></h1>
+      <p class="hero-sub">
+        Suttia automates the administrative side of real estate — paperwork, document checks, price analysis, lead follow-up — so you can focus on what actually earns you commission.
+      </p>
+      <div class="cta-group">
+        <a href="mailto:info@suttia.com?subject=Suttia%20Walkthrough%20Request" class="btn-primary">
+          Book a 20-min walkthrough →
+        </a>
+        <a href="#how" class="btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-strip reveal">
+    <div class="stat-item">
+      <span class="stat-number">70%</span>
+      <span class="stat-label">of an agent's week goes to tasks that generate zero commission</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">3–5 wk</span>
+      <span class="stat-label">average time to close — most of it waiting on documents</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">1 in 3</span>
+      <span class="stat-label">leads never gets a follow-up because agents run out of time</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">$0</span>
+      <span class="stat-label">earned per hour spent on coordination, paperwork, and admin</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="problem reveal">
+      <span class="section-tag">The problem</span>
+      <h2>Real estate is still running on <em>manual everything.</em></h2>
+      <p class="section-intro">The NAR settlement changed the rules. The market is moving faster. And agents are still doing the same time-consuming work they did 20 years ago.</p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <div class="problem-number">01</div>
+          <h3>Hours lost to admin</h3>
+          <p>Chasing documents, filling forms, coordinating between parties. Work that needs to happen — but doesn't need to be you.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-number">02</div>
+          <h3>Pricing without confidence</h3>
+          <p>Comparables take time to pull together and even then, clients question your numbers. You need data that speaks for itself.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-number">03</div>
+          <h3>Deals stalling at the end</h3>
+          <p>A missing document, a forgotten step, a buyer who doesn't know what's next. The last mile kills more deals than anything else.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-number">04</div>
+          <h3>Leads left behind</h3>
+          <p>You're good at converting — when you have time. But follow-up falls through the cracks when you're already deep in a transaction.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="how reveal">
+      <span class="section-tag">How Suttia works</span>
+      <h2>One platform. The whole <em>process.</em></h2>
+      <p class="section-intro">From listing to closing, Suttia handles the structure so you can focus on the relationship.</p>
+
+      <ul class="how-list">
+        <li class="how-item">
+          <div class="how-step"><div class="step-circle">1</div></div>
+          <div class="how-content">
+            <h3>List a property in minutes, not hours</h3>
+            <p>Guided listing flow with smart checklists. Documents, photos, price range — everything in one place, done right the first time. No more back-and-forth with sellers asking what they need to send.</p>
+          </div>
+        </li>
+        <li class="how-item">
+          <div class="how-step"><div class="step-circle">2</div></div>
+          <div class="how-content">
+            <h3>Justify your price with transparent data</h3>
+            <p>Instant comparables and a suggested price range — transparent, explainable, and ready to show your client. Stop defending your numbers. Let the data do it.</p>
+          </div>
+        </li>
+        <li class="how-item">
+          <div class="how-step"><div class="step-circle">3</div></div>
+          <div class="how-content">
+            <h3>Keep buyers and sellers on track automatically</h3>
+            <p>Step-by-step guidance for every party involved. Everyone knows what to do next. Fewer calls chasing updates. Fewer deals falling apart because someone forgot a step.</p>
+          </div>
+        </li>
+        <li class="how-item">
+          <div class="how-step"><div class="step-circle">4</div></div>
+          <div class="how-content">
+            <h3>Close faster, move to the next deal</h3>
+            <p>Document verification, missing item alerts, and progress tracking — so nothing gets stuck because someone forgot a form. More closings per year. Same effort.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-section reveal">
+    <span class="quote-mark">"</span>
+    <blockquote>
+      I spend at least 15 hours a week on things that have nothing to do with selling. If something could cut that in half, I'd pay for it without thinking twice.
+    </blockquote>
+    <p class="quote-attr">Florida realtor, South Miami — conversation, November 2025</p>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section reveal">
+    <span class="section-tag">Early access</span>
+    <h2>We're talking to <em>10 agents</em> this month.</h2>
+    <p>No pitch. No demo of a finished product. Just a 20-minute conversation to understand if Suttia solves a real problem for you — and to shape what we build next.</p>
+    <a href="mailto:info@suttia.com?subject=Suttia%20Walkthrough%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20a%2020-minute%20walkthrough%20with%20Suttia." class="btn-primary">
+      Reserve your spot →
+    </a>
+    <span class="cta-email">or write directly to info@suttia.com</span>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">SUTTIA</span>
+    <span class="footer-note">© 2025 Suttia. Real estate, simplified.</span>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
