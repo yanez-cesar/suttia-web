@@ -712,6 +712,47 @@
     }
     .reveal.visible { opacity: 1; transform: none; }
 
+
+    /* ─── WAITLIST ─── */
+    .waitlist-wrap {
+      max-width: 520px;
+      margin: 32px auto 0;
+      text-align: center;
+    }
+    .waitlist-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .waitlist-row input[type=email] {
+      flex: 1;
+      min-width: 220px;
+      background: var(--gray-1);
+      border: 0.5px solid var(--gray-3);
+      border-radius: 980px;
+      padding: 12px 20px;
+      font-size: 17px;
+      font-family: inherit;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .waitlist-row input[type=email]:focus { border-color: var(--blue); }
+    .waitlist-row input[type=email]::placeholder { color: var(--gray-4); }
+    .waitlist-note {
+      font-size: 13px;
+      color: var(--gray-4);
+      margin-top: 12px;
+    }
+    .waitlist-success {
+      display: none;
+      font-size: 19px;
+      color: var(--blue);
+      margin-top: 16px;
+      font-weight: 500;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -934,105 +975,22 @@
     <p class="quote-attr">Florida realtor, South Miami — November 2025</p>
   </div>
 
-  <!-- CTA / FORM -->
+  <!-- WAITLIST -->
   <section class="cta-section reveal" id="apply">
     <span class="section-eyebrow">Founder access — limited spots</span>
-    <h2 class="section-title">Get early access,<br>founder pricing,<br>and priority onboarding.</h2>
-    <p style="font-size: 17px; color: var(--gray-5); margin-top: 12px;">Answer 5 quick questions. Takes 60 seconds.<br>We'll reach out personally within 24 hours.</p>
+    <h2 class="section-title">You didn't get into real estate<br>to manage admin.</h2>
+    <p style="font-size: 17px; color: var(--gray-5); margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.5;">You got into it to build something.<br>Suttia helps you take it back.</p>
 
-    <div class="form-wrap">
-      <div class="form-card">
-
-        <!-- STEP INDICATOR -->
-        <div class="step-indicator">
-          <span class="step-dot active" id="dot-1"></span>
-          <span class="step-line"></span>
-          <span class="step-dot" id="dot-2"></span>
-          <span class="step-line"></span>
-          <span class="step-dot" id="dot-3"></span>
-          <span class="step-line"></span>
-          <span class="step-dot" id="dot-4"></span>
-          <span class="step-line"></span>
-          <span class="step-dot" id="dot-5"></span>
-        </div>
-
-        <!-- STEP 1 -->
-        <div class="form-step active" id="step-1">
-          <p class="form-q">What best describes you?</p>
-          <div class="options-grid">
-            <button class="opt-btn" data-step="1" data-val="Independent agent">Independent agent</button>
-            <button class="opt-btn" data-step="1" data-val="Team agent">Team agent</button>
-            <button class="opt-btn" data-step="1" data-val="Broker / agency owner">Broker / agency owner</button>
-            <button class="opt-btn" data-step="1" data-val="Other">Other</button>
-          </div>
-        </div>
-
-        <!-- STEP 2 -->
-        <div class="form-step" id="step-2">
-          <p class="form-q">What's the biggest thing slowing you down right now?</p>
-          <div class="options-grid">
-            <button class="opt-btn" data-step="2" data-val="Too much admin work">Too much admin work</button>
-            <button class="opt-btn" data-step="2" data-val="Losing leads / poor follow-up">Losing leads / follow-up</button>
-            <button class="opt-btn" data-step="2" data-val="Disorganized tools">Disorganized tools</button>
-            <button class="opt-btn" data-step="2" data-val="Not enough time to close deals">Not enough time to close</button>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="form-step" id="step-3">
-          <p class="form-q">How much time do you lose every week on tasks that don't generate revenue?</p>
-          <div class="options-grid">
-            <button class="opt-btn" data-step="3" data-val="Less than 5h">Less than 5h</button>
-            <button class="opt-btn" data-step="3" data-val="5–10h">5–10h</button>
-            <button class="opt-btn" data-step="3" data-val="10–20h">10–20h</button>
-            <button class="opt-btn" data-step="3" data-val="More than 20h">More than 20h</button>
-          </div>
-        </div>
-
-        <!-- STEP 4 -->
-        <div class="form-step" id="step-4">
-          <p class="form-q">How many deals do you close per month?</p>
-          <div class="options-grid">
-            <button class="opt-btn" data-step="4" data-val="0–2 deals">0–2 deals</button>
-            <button class="opt-btn" data-step="4" data-val="3–5 deals">3–5 deals</button>
-            <button class="opt-btn" data-step="4" data-val="6–10 deals">6–10 deals</button>
-            <button class="opt-btn" data-step="4" data-val="10+ deals">10+ deals</button>
-          </div>
-        </div>
-
-        <!-- STEP 5 -->
-        <div class="form-step" id="step-5">
-          <p class="form-q">If Suttia saved you 10+ hours/week and helped you close more deals — how likely are you to try it?</p>
-          <div class="options-grid">
-            <button class="opt-btn" data-step="5" data-val="Very likely">Very likely</button>
-            <button class="opt-btn" data-step="5" data-val="Somewhat likely">Somewhat likely</button>
-            <button class="opt-btn" data-step="5" data-val="Not sure yet">Not sure yet</button>
-            <button class="opt-btn" data-step="5" data-val="Not interested">Not interested</button>
-          </div>
-        </div>
-
-        <!-- STEP 6 — EMAIL -->
-        <div class="form-step" id="step-6">
-          <p class="form-q">Last step — where should we send your founder access?</p>
-          <p class="form-sub">Early access · Exclusive founder pricing · Priority onboarding</p>
-          <div class="email-row">
-            <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
-            <button class="btn-submit" onclick="submitForm()">Get access</button>
-          </div>
-          <p class="form-privacy">No spam. No calls. Just your access details.</p>
-        </div>
-
-        <!-- SUCCESS -->
-        <div class="form-step" id="step-success">
-          <div class="success-icon">✓</div>
-          <p class="form-q" style="text-align:center;">You're on the list.</p>
-          <p class="form-sub" style="text-align:center;">We'll reach out within 24 hours with your founder access details. Keep an eye on your inbox.</p>
-        </div>
-
+    <div class="waitlist-wrap">
+      <div class="waitlist-row" id="waitlist-form">
+        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
+        <button class="btn-primary" onclick="joinWaitlist()">Get early access</button>
       </div>
+      <p class="waitlist-note">No spam. No calls. Just your access details when we're ready.</p>
+      <p class="waitlist-success" id="waitlist-success">You're in. We'll be in touch. ✦</p>
     </div>
 
-    <p style="font-size: 13px; color: var(--gray-4); margin-top: 20px;">Questions? <a href="mailto:info@suttia.com" style="color: var(--blue); text-decoration: none;">info@suttia.com</a></p>
+    <p style="font-size: 13px; color: var(--gray-4); margin-top: 28px;">Questions? <a href="mailto:info@suttia.com" style="color: var(--blue); text-decoration: none;">info@suttia.com</a></p>
   </section>
 
   <!-- FOOTER -->
@@ -1052,13 +1010,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">Copyright © 2025 Suttia. All rights reserved.</p>
+      <p class="footer-copy">Copyright © 2026 Suttia. All rights reserved.</p>
       <p class="footer-sub">Real estate, simplified. · Florida</p>
     </div>
   </footer>
 
   <script>
-    // Intersection observer for reveal
+    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); }
@@ -1069,66 +1027,32 @@
     // Show nav CTA on scroll
     const navCta = document.getElementById('nav-cta');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        navCta.style.display = 'inline-flex';
-      } else {
-        navCta.style.display = 'none';
-      }
+      if (window.scrollY > 400) navCta.style.display = 'inline-flex';
+      else navCta.style.display = 'none';
     });
 
-    // Form logic
-    const answers = {};
-    let currentStep = 1;
-    const totalSteps = 5;
-
-    document.querySelectorAll('.opt-btn').forEach(btn => {
-      btn.addEventListener('click', function () {
-        const step = parseInt(this.dataset.step);
-        const val = this.dataset.val;
-        answers['q' + step] = val;
-        document.querySelectorAll(`[data-step="${step}"]`).forEach(b => b.classList.remove('selected'));
-        this.classList.add('selected');
-        setTimeout(() => goToStep(step + 1), 300);
-      });
-    });
-
-    function goToStep(n) {
-      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-      const target = document.getElementById('step-' + n);
-      if (target) target.classList.add('active');
-
-      for (let i = 1; i <= totalSteps; i++) {
-        const dot = document.getElementById('dot-' + i);
-        if (!dot) continue;
-        dot.classList.remove('active', 'done');
-        if (i < n) dot.classList.add('done');
-        else if (i === n) dot.classList.add('active');
-      }
-      currentStep = n;
-    }
-
-    function submitForm() {
+    // Waitlist
+    function joinWaitlist() {
       const email = document.getElementById('email-input').value.trim();
       if (!email || !email.includes('@')) {
         document.getElementById('email-input').focus();
         return;
       }
-      answers['email'] = email;
-
       const subject = encodeURIComponent('Suttia Early Access');
-      const body = encodeURIComponent(
-        'New lead from suttia.com\n\n' +
-        'Role: ' + (answers.q1 || '-') + '\n' +
-        'Biggest pain: ' + (answers.q2 || '-') + '\n' +
-        'Time lost/week: ' + (answers.q3 || '-') + '\n' +
-        'Deals/month: ' + (answers.q4 || '-') + '\n' +
-        'Likelihood to try: ' + (answers.q5 || '-') + '\n' +
-        'Email: ' + email
-      );
+      const body = encodeURIComponent('Email: ' + email + '
 
+Requested early access from suttia.com');
       window.location.href = 'mailto:info@suttia.com?subject=' + subject + '&body=' + body;
-      goToStep('success');
+      document.getElementById('waitlist-form').style.display = 'none';
+      document.getElementById('waitlist-success').style.display = 'block';
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('email-input');
+      if (input) input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') joinWaitlist();
+      });
+    });
   </script>
 
 </body>
