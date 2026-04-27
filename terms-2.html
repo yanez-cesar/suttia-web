@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Suttia</title>
+  <meta name="description" content="Terms of Service for suttia.com" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232997ff'/%3E%3Cpath d='M 22 5 C 22 2, 10 2, 10 8 C 10 13, 22 13, 22 16 C 22 19, 10 19, 10 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --gray-1: #1d1d1f;
+      --gray-2: #2d2d2f;
+      --gray-3: #3d3d3f;
+      --gray-4: #6e6e73;
+      --gray-5: #a1a1a6;
+      --gray-6: #d2d2d7;
+      --white: #f5f5f7;
+      --pure-white: #ffffff;
+      --blue: #2997ff;
+      --blue-dark: #0077ed;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, 'SF Pro Display', 'Inter', 'Helvetica Neue', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-back {
+      font-size: 12px;
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    /* ─── DOCUMENT ─── */
+    .doc {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    .doc-eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .doc-meta {
+      font-size: 14px;
+      color: var(--gray-5);
+      margin-bottom: 56px;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-top: 48px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 16px;
+      color: var(--gray-6);
+      margin-bottom: 14px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    ul {
+      margin: 8px 0 16px 22px;
+      color: var(--gray-6);
+    }
+    li {
+      font-size: 16px;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* ─── FOOTER LINK ─── */
+    .doc-footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 0.5px solid var(--gray-2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .back-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 8px 18px;
+      border: 0.5px solid var(--blue);
+      border-radius: 980px;
+      transition: all 0.2s;
+    }
+    .back-pill:hover {
+      background: var(--blue);
+      color: var(--pure-white);
+      text-decoration: none;
+    }
+
+    .footer-cross {
+      font-size: 13px;
+      color: var(--gray-5);
+    }
+    .footer-cross a { color: var(--gray-5); }
+    .footer-cross a:hover { color: var(--white); text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .doc { padding: 56px 20px 80px; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg width="20" height="26" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 46 10 C 46 2, 14 2, 14 18 C 14 30, 46 30, 46 40 C 46 50, 14 50, 14 62" stroke="#2997ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>Suttia</span>
+    </a>
+    <a href="/" class="nav-back">← Home</a>
+  </nav>
+
+  <!-- DOCUMENT -->
+  <main class="doc">
+    <span class="doc-eyebrow">Legal</span>
+    <h1>Terms of Service</h1>
+    <p class="doc-meta">Effective date: April 26, 2026 · Last updated: April 26, 2026</p>
+
+    <p>These Terms govern your use of suttia.com (the "Site") and the waitlist sign-up offered on it. By submitting your email or other information through the Site, you agree to these Terms.</p>
+
+    <h2>1. Who we are</h2>
+    <p>Suttia LLC is a Florida limited liability company ("Suttia," "we," "our"). You can reach us at <a href="mailto:info@suttia.com">info@suttia.com</a>.</p>
+
+    <h2>2. What the Site currently offers</h2>
+    <p>The Site is a pre-launch page describing a product in development for Florida real estate agents. Today, the only thing you can do on the Site is:</p>
+    <ul>
+      <li>Read information about Suttia.</li>
+      <li>Submit your email to join our waitlist for early access.</li>
+      <li>Email us directly.</li>
+    </ul>
+    <p>The product itself is not available yet. Nothing on the Site constitutes a binding offer to provide services, a contract for services, or a guarantee of future access, pricing, or features.</p>
+
+    <h2>3. Eligibility</h2>
+    <p>You must be at least 18 years old to use the Site. By submitting information, you confirm that you are.</p>
+
+    <h2>4. What we'll do with your submission</h2>
+    <p>If you join the waitlist, we may:</p>
+    <ul>
+      <li>Contact you about Suttia by email.</li>
+      <li>Use your information internally to understand demand, prioritize onboarding, and improve the product.</li>
+      <li>Invite you to early access, founder pricing, or onboarding when the product launches.</li>
+    </ul>
+    <p>You can unsubscribe from these communications at any time.</p>
+    <p>How we handle your data is described in our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+    <h2>5. Forward-looking statements</h2>
+    <p>The Site describes a product that is being built. Features, capabilities, pricing, launch dates, and availability are described in good faith but are not promises.</p>
+    <p>You should not rely on any information on the Site as a basis for business, financial, or professional decisions.</p>
+    <p>We may change, delay, or cancel anything described on the Site at any time without notice.</p>
+
+    <h2>6. Early access and beta</h2>
+    <p>If we grant you early access to Suttia, you understand that the product may be incomplete and may contain errors, bugs, or interruptions. Features may change or be removed at any time.</p>
+    <p>Early access is provided for evaluation purposes and does not create any obligation for us to continue offering the product in its current form or at all.</p>
+
+    <h2>7. Real estate disclaimer</h2>
+    <p>Suttia is being designed as a software tool for licensed real estate professionals. Suttia is not, and will not act as, a real estate broker, agent, attorney, financial advisor, or appraiser. Nothing on the Site is real estate, legal, financial, or tax advice. You are responsible for your own professional and licensing obligations.</p>
+
+    <h2>8. Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Submit false, misleading, or someone else's contact information.</li>
+      <li>Attempt to access, probe, or disrupt the Site beyond its public functionality.</li>
+      <li>Use the Site to harass, defame, or harm anyone.</li>
+      <li>Scrape, copy, or reuse the Site's content without our written permission.</li>
+    </ul>
+
+    <h2>9. Intellectual property</h2>
+    <p>The Site, the Suttia name, the Suttia logo, and the design and content of the Site are owned by Suttia LLC. You may not copy, modify, or republish them without our written permission.</p>
+
+    <h2>10. No warranty</h2>
+    <p>The Site is provided "as is" and "as available." To the maximum extent permitted by law, we disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Site will be uninterrupted, secure, or error-free.</p>
+
+    <h2>11. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, Suttia LLC and its members, employees, and agents will not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Site. Our total aggregate liability to you for any claim related to the Site will not exceed one hundred US dollars ($100).</p>
+
+    <h2>12. Termination</h2>
+    <p>We may remove your information from our waitlist or restrict your access to the Site at any time, for any reason. You may ask us to remove your information at any time by emailing <a href="mailto:info@suttia.com">info@suttia.com</a>.</p>
+
+    <h2>13. Changes to these Terms</h2>
+    <p>We may update these Terms. If we do, we'll change the "Last updated" date above. Material changes will be communicated by updating the Site or, if you've joined the waitlist, by email.</p>
+
+    <h2>14. Governing law and disputes</h2>
+    <p>These Terms are governed by the laws of the State of Florida, without regard to its conflict-of-laws rules. Any dispute arising from these Terms or your use of the Site will be resolved exclusively in the state or federal courts located in Miami-Dade County, Florida, and you consent to the personal jurisdiction of those courts.</p>
+
+    <h2>15. Contact</h2>
+    <p>Questions about these Terms? Email <a href="mailto:info@suttia.com">info@suttia.com</a>.</p>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+      <a href="/" class="back-pill">← Back to Suttia</a>
+      <span class="footer-cross">See also: <a href="/privacy.html">Privacy Policy</a></span>
+    </div>
+  </main>
+
+</body>
+</html>
